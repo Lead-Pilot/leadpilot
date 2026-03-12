@@ -579,31 +579,41 @@
   </div>
 </footer>
 
+<!-- Hidden Mailchimp form for real submissions -->
+<form id="mc-form" action="https://myrtlebeachleads.us3.list-manage.com/subscribe/post?u=e962dfbbf418e08533a62118e&amp;id=38e63b4173&amp;f_id=007bdee3f0" method="post" target="mc-hidden-iframe" style="display:none;">
+  <input type="email" name="EMAIL" id="mc-email-hidden">
+  <div aria-hidden="true" style="position:absolute;left:-5000px;">
+    <input type="text" name="b_e962dfbbf418e08533a62118e_38e63b4173" tabindex="-1" value="">
+  </div>
+  <input type="submit" value="Subscribe">
+</form>
+<iframe name="mc-hidden-iframe" style="display:none;"></iframe>
+
 <script>
+  function submitToMailchimp(email) {
+    document.getElementById('mc-email-hidden').value = email;
+    document.getElementById('mc-form').submit();
+  }
+
   function joinWaitlist() {
     const email = document.getElementById('email-input').value;
     if (!email || !email.includes('@')) {
       document.getElementById('email-input').style.borderColor = '#ff4d4d';
       return;
     }
-    const MAILCHIMP_URL = 'https://myrtlebeachleads.us3.list-manage.com/subscribe/post?u=e962dfbbf418e08533a62118e&id=38e63b4173&f_id=007bdee3f0';
-    fetch(MAILCHIMP_URL + '&EMAIL=' + encodeURIComponent(email), {
-      method: 'POST', mode: 'no-cors'
-    });
+    submitToMailchimp(email);
     document.querySelector('.waitlist-form').style.display = 'none';
     document.getElementById('success-msg').style.display = 'block';
     document.querySelector('.waitlist-note').style.display = 'none';
   }
+
   function joinWaitlist2() {
     const email = document.getElementById('email-input-2').value;
     if (!email || !email.includes('@')) {
       document.getElementById('email-input-2').style.borderColor = '#ff4d4d';
       return;
     }
-    const MAILCHIMP_URL = 'https://myrtlebeachleads.us3.list-manage.com/subscribe/post?u=e962dfbbf418e08533a62118e&id=38e63b4173&f_id=007bdee3f0';
-    fetch(MAILCHIMP_URL + '&EMAIL=' + encodeURIComponent(email), {
-      method: 'POST', mode: 'no-cors'
-    });
+    submitToMailchimp(email);
     document.querySelectorAll('.waitlist-form')[1].innerHTML = '<div style="background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.3);color:var(--green);padding:16px 24px;font-size:13px;">✓ &nbsp;You\'re on the list. We\'ll reach out soon.</div>';
   }
 </script>
