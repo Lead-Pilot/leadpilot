@@ -586,6 +586,10 @@
       document.getElementById('email-input').style.borderColor = '#ff4d4d';
       return;
     }
+    const MAILCHIMP_URL = 'https://myrtlebeachleads.us3.list-manage.com/subscribe/post?u=e962dfbbf418e08533a62118e&id=38e63b4173&f_id=007bdee3f0';
+    fetch(MAILCHIMP_URL + '&EMAIL=' + encodeURIComponent(email), {
+      method: 'POST', mode: 'no-cors'
+    });
     document.querySelector('.waitlist-form').style.display = 'none';
     document.getElementById('success-msg').style.display = 'block';
     document.querySelector('.waitlist-note').style.display = 'none';
@@ -596,6 +600,10 @@
       document.getElementById('email-input-2').style.borderColor = '#ff4d4d';
       return;
     }
+    const MAILCHIMP_URL = 'https://myrtlebeachleads.us3.list-manage.com/subscribe/post?u=e962dfbbf418e08533a62118e&id=38e63b4173&f_id=007bdee3f0';
+    fetch(MAILCHIMP_URL + '&EMAIL=' + encodeURIComponent(email), {
+      method: 'POST', mode: 'no-cors'
+    });
     document.querySelectorAll('.waitlist-form')[1].innerHTML = '<div style="background:rgba(0,229,160,0.1);border:1px solid rgba(0,229,160,0.3);color:var(--green);padding:16px 24px;font-size:13px;">✓ &nbsp;You\'re on the list. We\'ll reach out soon.</div>';
   }
 </script>
